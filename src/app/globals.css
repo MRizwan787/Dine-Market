@@ -1,33 +1,105 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .center {
+    @apply flex items-center justify-center;
+  }
+
+  .dark {
+    @apply bg-gray-900 text-gray-50;
+  }
+
+  .muted {
+    @apply text-gray-400;
+  }
+
+  .muted-foreground {
+    @apply text-gray-700;
+  }
+
+  .popover {
+    @apply bg-white text-gray-900;
+  }
+
+  .popover-foreground {
+    @apply text-gray-900;
+  }
+
+  .card {
+    @apply bg-white text-gray-900;
+  }
+
+  .card-foreground {
+    @apply text-gray-900;
+  }
+
+  .border {
+    @apply border-gray-200;
+  }
+
+  .input {
+    @apply border-gray-200;
+  }
+
+  .primary {
+    @apply bg-red-500 text-white;
+  }
+
+  .primary-foreground {
+    @apply text-white;
+  }
+
+  .secondary {
+    @apply bg-gray-100 text-gray-900;
+  }
+
+  .secondary-foreground {
+    @apply text-gray-900;
+  }
+
+  .accent {
+    @apply bg-gray-200 text-gray-900;
+  }
+
+  .accent-foreground {
+    @apply text-gray-900;
+  }
+
+  .destructive {
+    @apply bg-red-600 text-white;
+  }
+
+  .destructive-foreground {
+    @apply text-white;
+  }
+
+  .ring {
+    @apply ring-gray-300;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .rounded {
+    border-radius: var(--radius);
   }
+
+ @layer utilities {
+  .rounded {
+    border-radius: var(--radius);
+  }
+}
+
 }
